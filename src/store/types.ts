@@ -1,6 +1,6 @@
 export type CharacterId = number;
 
-export type Filter = string;
+export type Filter = number | null;
 
 export type State = {
   filter: Filter,
