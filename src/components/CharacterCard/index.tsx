@@ -12,10 +12,18 @@ import {
   Text,
 } from './styles';
 
+const deleteSpaces = (str: string) => {
+  const result = str.replace(' ', '');
+  
+  return result.length === str.length
+    ? result
+    : deleteSpaces(result);
+};
+
 const concatId = (
   name: string, 
   id: number
-) => '#' + name.toLowerCase().replaceAll(' ', '') + 'ID' + id;
+) => '#' + deleteSpaces(name.toLowerCase()) + 'ID' + id;
 
 const getColorForStatus = (status: string) => {
   switch(status) {
