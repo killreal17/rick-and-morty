@@ -310,4 +310,15 @@ const CHARACTERS: Character[] = [
   },
 ];
 
+export const getCharacterDataById = (id: number) => {
+  let result: Character;
+  CHARACTERS.forEach(character => {
+    if (character.id === id) {
+      result = character;
+    }
+  });
+
+  return result;
+};
+
 export default CHARACTERS;
