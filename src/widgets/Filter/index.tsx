@@ -2,28 +2,26 @@ import {connect} from 'react-redux';
 
 import INITIAL_STATE from '../../store/initialState';
 import CustomInput from './view';
+import {CustomInputProps} from './view/types';
 
 import {setFilter} from '../../store/reducers/filter';
 
 const mapStateToProps = (
-  filter = INITIAL_STATE.filter
-) => {
-  console.log(filter);
-  const value = filter 
-    ? filter.toString()
-    : '';
+  state = INITIAL_STATE
+): Omit<CustomInputProps, 'onInput'> => {
+  const {filter} = state;
+  const value = filter ? String(filter) : '';
 
-  return {
+  return ({
     value: value,
     placeholder: 'Введите номер эпизода',
-  };
+  });
 };
 
 const mapDispatchToProps = dispatch => ({
-  onInput: (value: number) => {},
+  onInput: (value: number) => {dispatch(setFilter(value));},
 });
 
-console.log(mapStateToProps(), mapDispatchToProps('a'));
+const Filter = connect(mapStateToProps, mapDispatchToProps)(CustomInput);
 
-export const Filter = connect(mapStateToProps)(CustomInput);
-
+export default Filter;

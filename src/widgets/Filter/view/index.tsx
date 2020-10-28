@@ -24,12 +24,12 @@ const CustomInput: React.FC<CustomInputProps> = ({
 
   const setFocusHandler = useCallback(() => {
     setFocus(true);
-  }
+  }, []
   );
 
   const setBlurHandler = useCallback(() => {
     setFocus(false);
-  }
+  }, []
   );
 
   const onInputHandler = useCallback((
@@ -48,9 +48,9 @@ const CustomInput: React.FC<CustomInputProps> = ({
       onClick={setFocusHandler}
     >
       <Input
-        value={value || isShownPlaceholder
+        value={isShownPlaceholder
           ? placeholder
-          : ''
+          : value
         }
         isShownPlaceholder={isShownPlaceholder}
         ref={inputElement}

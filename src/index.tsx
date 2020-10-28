@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
+import {Provider} from 'react-redux';
 
 import store from './store';
 import {setCharacterIds} from './store/reducers/characters';
@@ -22,4 +23,9 @@ store.subscribe(() => {
 });
 
 const root = document.getElementById('root');
-ReactDOM.render(<AppView/>, root);
+ReactDOM.render(
+  <Provider store={store}>
+    <AppView/>
+  </Provider>, 
+  root
+);
