@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import {TextProps} from './types';
+
 export const Grid = styled.div`
   @media screen and (max-width: 1300px) {
     grid-template-columns: repeat(2, 1fr); 
@@ -13,4 +15,25 @@ export const Grid = styled.div`
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
+`;
+
+export const Header = styled.div`
+  padding: 30px;
+  padding: 30px;
+`;
+
+export const Text = styled.div<TextProps>`
+  font-size: ${props => {
+    switch(props.size) {
+    case 'l':
+      return '40px';
+
+    case 'm': 
+      return '20px';
+
+    default: 
+      return '20px';
+    }
+  }};
+  color: rgb(120, 120, 120);
 `;
