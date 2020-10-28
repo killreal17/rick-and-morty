@@ -17,6 +17,19 @@ const concatId = (
   id: number
 ) => name.toLowerCase().replace(' ', '') + 'ID' + id;
 
+const getColorForStatus = (status: string) => {
+  switch(status) {
+  case 'Alive':
+    return 'rgb(3, 158, 19)';
+    
+  case 'Dead': 
+    return 'rgb(217, 13, 40)';
+
+  default:
+    return null;
+  }
+};
+
 const CharacterCard: React.FC<CardProps> = ({
   characterId,
 }: CardProps) => {
@@ -30,18 +43,22 @@ const CharacterCard: React.FC<CardProps> = ({
       />
       <Information>
         <Cell>
-          <Text >
+          <Text
+            color="rgb(209, 209, 209)"
+          >
             {concatId(character.name, character.id)}
           </Text>
         </Cell>
         <Cell>
           <Text 
             size="l"
+            color="rgb(209, 209, 209)"
           >
             {character.name}
           </Text>
           <Text
             size="s"
+            color={getColorForStatus(character.status)}
           >
             {character.status}
           </Text>

@@ -3,5 +3,6 @@ export type GridProps = {
 }
 
 export type TextProps = { 
+  color?: string,
   size?: 'l' | 'm',
 }

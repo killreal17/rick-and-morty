@@ -10,7 +10,8 @@ export const Wrapper = styled.div`
   border: solid rgb(35, 102, 41);
   border-radius: 10px;
   transition: 300ms;
-
+  cursor: pointer;
+  
   :hover {
     background-color: rgb(5, 89, 14);
     border: solid rgb(42, 115, 50);

@@ -23,5 +23,5 @@ export const Input = styled.input<InputProps>`
   font-size: 20px;
   color: ${props => props.isShownPlaceholder
     ? 'rgb(102, 102, 102)' 
-    : 'rgb(0, 0, 0)'};
+    : 'rgb(209, 209, 209)'};
 `;

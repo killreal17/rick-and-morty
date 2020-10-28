@@ -35,5 +35,5 @@ export const Text = styled.div<TextProps>`
       return '20px';
     }
   }};
-  color: rgb(120, 120, 120);
+  color: ${props => props.color || 'rgb(209, 209, 209)'};
 `;
