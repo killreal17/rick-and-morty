@@ -10,21 +10,15 @@ export const Background = styled.div`
 `;
 
 export const Header = styled.div`
-  padding: 10px 20px;
-  display: flex;
-`;
-
-export const Grid = styled.div`
-  @media screen and (max-width: 1300px) {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-
-  @media screen and (max-width: 700px) {
-    grid-template-columns: repeat(1, 1fr); 
-  }
   padding: 20px 20px;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  overflow-y: auto;
+  display: flex;
+  background-image: url(https://www.firstcomicsnews.com/wp-content/uploads/2017/09/Rick-and-Morty-logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  -webkit-box-shadow: 100px 100px 0px 100px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 100px 100px 0px 100px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 100px 100px 0px 100px rgba(0, 0, 0, 0.4) inset;
 `;
+
+
