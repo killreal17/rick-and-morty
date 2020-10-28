@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {InputProps} from './types';
 
 export const Wrapper = styled.div`
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 850px) {
     flex: auto;
   }
   width: 500px;

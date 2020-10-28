@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import {TextProps} from './types';
 
 export const Grid = styled.div`
-  @media screen and (max-width: 1300px) {
+  @media screen and (max-width: 1550px) {
     grid-template-columns: repeat(2, 1fr); 
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 850px) {
     grid-template-columns: repeat(1, 1fr); 
   }
   padding: 20px 20px;

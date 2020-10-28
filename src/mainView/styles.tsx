@@ -10,6 +10,10 @@ export const Background = styled.div`
 `;
 
 export const Header = styled.div`
+  @media screen and (max-width: 850px) {
+    background-position: right;
+  }
+
   padding: 20px 20px;
   display: flex;
   background-image: url(https://www.firstcomicsnews.com/wp-content/uploads/2017/09/Rick-and-Morty-logo.png);
