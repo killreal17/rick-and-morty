@@ -8,12 +8,14 @@ import {
 } from './styles';
 
 import Filter from '../widgets/Filter';
+import Grid from '../widgets/Grid';
 
 const AppView: React.FC<AppProps> = () => (
   <Background>
     <Header>
       <Filter/>
     </Header>
+    <Grid/>
   </Background>
 );
 
