@@ -15,7 +15,7 @@ import {
 const concatId = (
   name: string, 
   id: number
-) => name.toLowerCase().replace(' ', '') + 'ID' + id;
+) => '#' + name.toLowerCase().replaceAll(' ', '') + 'ID' + id;
 
 const getColorForStatus = (status: string) => {
   switch(status) {
