@@ -1,8 +1,7 @@
-import React from 'react';
-
-import {getCharacterDataById} from '../../resourse/characters';
+import React, {useState, useEffect} from 'react';
 
 import {CardProps} from './types';
+import {getCharacterData} from './helpers';
 
 import {
   Wrapper, 
@@ -10,6 +9,7 @@ import {
   Information,
   Cell, 
   Text,
+  LoadingPlace,
 } from './styles';
 
 const deleteSpaces = (str: string) => {
@@ -42,62 +42,122 @@ const CharacterCard: React.FC<CardProps> = ({
   characterId,
 }: CardProps) => {
 
-  const character = getCharacterDataById(characterId);
+  const [character, setCharacter] = useState({
+    image: null,
+    id: null,
+    name: null,
+    status: null,
+    species: null,
+    gender: null,
+    origin: null,
+    location: null,
+  });
+
+  useEffect(() => {
+    getCharacterData(characterId).then(setCharacter);
+  }, 
+  [character]
+  );
 
   return (
     <Wrapper>
       <Image
         src={character.image}
+        isAnimated={!character.image}
       />
       <Information>
         <Cell>
-          <Text
-            color="rgb(209, 209, 209)"
-          >
-            {concatId(character.name, character.id)}
-          </Text>
+          {
+            character.name
+              ? (
+                <Text
+                  color="rgb(209, 209, 209)"
+                >
+                  {concatId(character.name, character.id)}
+                </Text>
+              )
+              : <LoadingPlace/>
+          }
+          
         </Cell>
         <Cell>
-          <Text 
-            size="l"
-            color="rgb(209, 209, 209)"
-          >
-            {character.name}
-          </Text>
-          <Text
-            size="s"
-            color={getColorForStatus(character.status)}
-          >
-            {character.status}
-          </Text>
+          {
+            character.name
+              ? (
+                <Text 
+                  size="l"
+                  color="rgb(209, 209, 209)"
+                >
+                  {character.name}
+                </Text>
+              )
+              : <LoadingPlace size="l"/>
+          }
+          {
+            character.status
+              ? (
+                <Text
+                  size="s"
+                  color={getColorForStatus(character.status)}
+                >
+                  {character.status}
+                </Text>
+              )
+              : <LoadingPlace size="s"/>
+          }
+          
         </Cell>
         <Cell>
-          <Text
-            size="s"
-          >
-            Категория: {character.species}
-          </Text>
+          {
+            character.species
+              ? (
+                <Text
+                  size="s"
+                >
+                  Категория: {character.species}
+                </Text>
+              )
+              : <LoadingPlace size="s"/>
+          }
         </Cell>
         <Cell>
-          <Text
-            size="s"
-          >
-            Пол: {character.gender}
-          </Text>
+          {
+            character.gender
+              ? (
+                <Text
+                  size="s"
+                >
+                  Пол: {character.gender}
+                </Text>
+              )
+              : <LoadingPlace size="s"/>
+          }
         </Cell>
         <Cell>
-          <Text
-            size="s"
-          >
-            Происхождение: {character.origin}
-          </Text>
+          {
+            character.origin
+              ? (
+                <Text
+                  size="s"
+                >
+                  Происхождение: {character.origin}
+                </Text>
+              )
+              : <LoadingPlace size="s"/>
+          }
         </Cell>
         <Cell>
-          <Text
-            size="s"
-          >
-            Месторасположение: {character.location}
-          </Text>
+          {
+            character.location
+              ? (
+                <Text
+                  size="s"
+                >
+                  Месторасположение: {character.location}
+                </Text>
+              )
+              : <LoadingPlace size="s"/>
+          }
         </Cell>
       </Information>
     </Wrapper>

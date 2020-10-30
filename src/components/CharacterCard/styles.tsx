@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-import {TextProps} from './types';
+import {
+  TextProps, 
+  LoadingPlaceProps,
+  ImageProps,
+} from './types';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -18,10 +22,20 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled.img<ImageProps>`
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  background-color: rgb(153, 153, 153);
+  ${props => props.isAnimated 
+    ? `@keyframes lightSpeed {
+        0% {opacity: 0.6;}
+        50% {opacity: 1;}
+        100% {opacity: 0.6;}
+      }
+      animation: lightSpeed 2s infinite;`
+    : ''
+}
 `;
 
 export const Information = styled.div`
@@ -53,4 +67,46 @@ export const Text = styled.div<TextProps>`
     }
   }};
   color: ${props => props.color || 'rgb(120, 120, 120)'};
+`;
+
+export const LoadingPlace = styled.div<LoadingPlaceProps>`
+  width: ${props => {
+    switch(props.size) {
+    case 'l':
+      return '150px';
+
+    case 'm': 
+      return '100px';
+
+    case 's':
+      return '75px';
+
+    default: 
+      return '100px';
+    }
+  }};
+  height: ${props => {
+    switch(props.size) {
+    case 'l':
+      return '30px';
+
+    case 'm': 
+      return '20px';
+
+    case 's':
+      return '17px';
+
+    default: 
+      return '20px';
+    }
+  }};
+  border-radius: 4px;
+  background-color: rgb(153, 153, 153);
+  @keyframes lightSpeed {
+    0% {opacity: 0.6;}
+    50% {opacity: 1;}
+    100% {opacity: 0.6;}
+  }
+  animation: lightSpeed 2s infinite;
+       
 `;
